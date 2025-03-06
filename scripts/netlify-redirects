@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+echo "Setting up redirects in the build directory"
+
+cat > build/_redirects <<EOF
+"/* /index.html 200" 
+EOF

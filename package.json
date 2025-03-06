@@ -5,7 +5,7 @@
   "scripts": {
     "start": "vite",
     "serve": "vite preview",
-    "build": "vite build && scripts/copy-katex-assets && scripts/install-twemoji-assets",
+    "build": "vite build && scripts/netlify-redirects && scripts/copy-katex-assets && scripts/install-twemoji-assets",
     "postinstall": "scripts/copy-katex-assets && scripts/install-twemoji-assets",
     "check": "scripts/check",
     "check:radicle-httpd": "cd radicle-httpd && cargo clippy --all --tests && cargo fmt --all --check",
