@@ -1,6 +1,10 @@
 {
   "redirects": [
     {
+      "source": "/rad([^/]+)/i/(.+)",
+      "destination": "/nodes/seed.radicle.garden/rad$1/issues/$2"
+    },
+    {
       "source": "/rad(.*)",
       "destination": "/nodes/seed.radicle.garden/rad$1"
     }
