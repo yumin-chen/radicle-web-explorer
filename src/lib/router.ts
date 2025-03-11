@@ -181,7 +181,21 @@ function extractBaseUrl(hostAndPort: string): BaseUrl {
 function urlToRoute(url: URL): Route | null {
   const segments = url.pathname.substring(1).split("/");
 
-  const resource = segments.shift();
+  const resource = segments.shift() || "default";
+
+  if (Object.keys(config.namedRepositories).includes(resource)) {
+    return resolveRepoRoute(
+      {
+        ...config.preferredSeeds[
+        Math.random() * config.preferredSeeds.length | 0
+        ],
+        hidden: true,
+      },
+      config.namedRepositories[resource],
+      segments,
+      url.search
+    );
+  }
 
   if (resource?.startsWith("rad:")) {
     return resolveRepoRoute(
